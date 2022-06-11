@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url =
+const url = "mongodb+srv://admin:admin@cluster0.lfxrn.mongodb.net/?retryWrites=true&w=majority"
   // "mongodb://akky:KdaWNLd6wxADLvy@cluster0-shard-00-00.rfatk.mongodb.net:27017,cluster0-shard-00-01.rfatk.mongodb.net:27017,cluster0-shard-00-02.rfatk.mongodb.net:27017/quora-clone-mern?ssl=true&replicaSet=atlas-i16i1b-shard-0&authSource=admin&retryWrites=true&w=majority";
 
 module.exports.connect = () => {
