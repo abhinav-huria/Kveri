@@ -10,6 +10,6 @@
 `git push origin development`
 - All changes will show up in development branch which will be merged to main branch periodically. Please donot commit directly in main
 - After this whole setup just run commands from next time<br/>
-`git branch development`<br/>
+`git checkout development`<br/>
 `git pull origin development`<br/>
 and now do updations
