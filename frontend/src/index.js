@@ -13,7 +13,7 @@ import store from "./app/store";
 TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(en);
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <React.StrictMode>
     <Provider store={store}>
       <App />

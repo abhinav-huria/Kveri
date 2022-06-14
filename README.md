@@ -12,4 +12,9 @@
 - After this whole setup just run commands from next time<br/>
 `git checkout development`<br/>
 `git pull origin development`<br/>
-and now do updations
+and now do updations<br />
+
+## For frontend team
+- First run &ensp;`npm run build`&ensp; in frontend folder
+- Then come to backend folder and run &ensp;`nodemon server.js`
+- The frontend will be rendered by server at [localhost:5000/](localhost:5000/)
