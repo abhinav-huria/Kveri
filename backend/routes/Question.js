@@ -64,4 +64,38 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/topAnswered", async(req, res, next) => {
+	try {
+    await questionDB
+      .aggregate([
+        {
+          $lookup: {
+            from: "answers", //collection to join
+            localField: "_id", //field from input document
+            foreignField: "questionId",
+            as: "allAnswers", //output array field
+          },
+        },
+      ])
+      .exec()
+      .then((doc) => {
+				doc.sort(function(d1, d2) {
+					return d2.allAnswers.length - d1.allAnswers.length;
+				})
+        res.status(200).send(doc);
+      })
+      .catch((error) => {
+        res.status(500).send({
+          status: false,
+          message: "Unable to get the question details",
+        });
+      });
+  } catch (e) {
+    res.status(500).send({
+      status: false,
+      message: "Unexpected error",
+    });
+  }
+})
+
 module.exports = router;

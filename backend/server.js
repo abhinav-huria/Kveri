@@ -12,8 +12,8 @@ const router = require("./routes");
 db.connect();
 
 //middle ware
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //cors
 app.use((req, res, next) => {
