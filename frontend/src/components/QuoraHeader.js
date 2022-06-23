@@ -10,7 +10,7 @@ import {
   ExpandMore,
 } from "@material-ui/icons";
 import CloseIcon from "@material-ui/icons/Close";
-import { Avatar, Button, Input } from "@material-ui/core";
+import { Avatar, Button, Input, makeStyles } from "@material-ui/core";
 import "./css/QuoraHeader.css";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -19,8 +19,20 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { logout, selectUser } from "../feature/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import CheckIcon from '@material-ui/icons/Check';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import Alert from '@material-ui/lab/Alert';
+import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 function QuoraHeader() {
+  const classes = useStyles();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputUrl, setInputUrl] = useState("");
   const [question, setQuestion] = useState("");
@@ -43,8 +55,11 @@ function QuoraHeader() {
       await axios
         .post("/api/questions", body, config)
         .then((res) => {
-          console.log(res.data);
+          //console.log(res.data);
           alert(res.data.message);
+        // <Alert icon={<CheckCircleOutline fontSize="inherit" />} severity="success">
+        //   {res.data.message}
+        // </Alert>
           window.location.href = "/";
         })
         .catch((e) => {
@@ -67,12 +82,14 @@ function QuoraHeader() {
     }
   };
   return (
+    
     <div className="qHeader">
       <div className="qHeader-content">
         <div className="qHeader__logo">
           <img
-            src="https://video-public.canva.com/VAD8lt3jPyI/v/ec7205f25c.gif"
+            src="https://th.bing.com/th/id/R.823d07385a1376cda8f3f452b8625c77?rik=%2bkl9apNFOD1kmA&riu=http%3a%2f%2fclipartmag.com%2fimages%2fquestion-mark-cartoon-clipart-29.png&ehk=p9Us7%2bc%2b3%2bTZ5cyI0g%2fmK3VTQgytE9PTnYQupYk8yLA%3d&risl=&pid=ImgRaw&r=0"
             alt="logo"
+            style={{height:"100px",width:"100px"}}
           />
         </div>
         <div className="qHeader__icons">
@@ -97,27 +114,28 @@ function QuoraHeader() {
           <input type="text" placeholder="Search questions" />
         </div>
         <div className="qHeader__Rem">
-          <span onClick={handleLogout}>
+          <span>
             <Avatar src={user?.photo} />
           </span>
-
+          <Button onClick={handleLogout}>Log Out</Button>
           <Button onClick={() => setIsModalOpen(true)}>Add Question</Button>
           <Modal
             open={isModalOpen}
             closeIcon={Close}
             onClose={() => setIsModalOpen(false)}
+            
             closeOnEsc
             center
             closeOnOverlayClick={false}
-            styles={{
-              overlay: {
-                height: "auto",
-              },
-            }}
+            // styles={{
+            //   overlay: {
+            //     height: "auto",
+            //   },
+            // }}
           >
             <div className="modal__title">
-              <h5>Add Question</h5>
-              <h5>Share Link</h5>
+              <h4>Add Question</h4>
+
             </div>
             <div className="modal__info">
               <Avatar src={user?.photo} className="avatar" />

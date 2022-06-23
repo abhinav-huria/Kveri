@@ -1,11 +1,5 @@
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+  margin: 0; 
 }
 
 .btn:hover {
@@ -20,15 +14,8 @@ button::selection {
   outline: none !important;
 }
 
-.btn::selection {
-  outline: none;
-}
-
 button:focus {
   outline: none !important;
 }
 
-:root {
-  --vp: 0.052vw;
-  --vm: 0.278vw;
-}
+

@@ -1,12 +1,13 @@
 .qHeader {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  position: sticky;
+  background-color: #111318;
+
+  /* position: sticky; */
   z-index: 1000;
   top: 0px;
   /* box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5); */
-  box-shadow: 2px 3px 6px rgba(187, 187, 187, 0.5);
+  box-shadow: 2px 2px 4px rgba(187, 187, 187, 0.5);
   justify-content: center;
   padding: 3px;
 }
@@ -15,25 +16,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 5px; */
+  padding: 2px;
+  color: whitesmoke;
 }
 
 .qHeader__logo > img {
   height: 30px !important;
   object-fit: contain;
+  
 }
 
 .qHeader__icons {
   display: flex;
+  color: white;
 }
 
 .qHeader__icon {
   padding: 5px;
   cursor: pointer;
+  color: white;
 }
 
 .qHeader__icon:hover {
-  background-color: #eee;
+  background-color: rgb(100, 95, 95);
   border-radius: 5px;
 }
 
@@ -48,25 +53,6 @@
   color: #000;
 }
 
-/* .qHeader__icons {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.qHeader__icons > .active > .MuiSvgIcon-root {
-  color: #8f1f1b;
-}
-.qHeader__icon > .MuiSvgIcon-root {
-  font-size: xx-large;
-  padding: 5px 20px;
-  color: gray;
-}
-.qHeader__icon > .MuiSvgIcon-root:hover {
-  background-color: rgba(233, 233, 233, 0.5);
-  border-radius: 10px;
-  color: #b92b27;
-} */
-
 .qHeader__input {
   display: flex;
   align-items: center;
@@ -80,11 +66,11 @@
   background-color: transparent;
   outline: none;
   border: none;
-  color: rgb(49, 49, 49);
+  color: white;
 }
 
 .qHeader__input > .MuiSvgIcon-root {
-  color: gray;
+  color: white;
 }
 
 .qHeader__avatar {

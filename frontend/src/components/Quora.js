@@ -10,11 +10,11 @@ function Quora() {
     <div className="quora">
       <QuoraHeader />
       <div className="quora__contents">
-        <div className="quora__content">
-          <Sidebar />
-          <Feed />
-          <Widget />
-        </div>
+
+            <div className="cSide"><Sidebar /></div>
+            <div className="cFeed"><Feed /></div>
+            <div className="cWidget"><Widget /></div>
+
       </div>
     </div>
   );

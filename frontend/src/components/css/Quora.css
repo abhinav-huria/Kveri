@@ -1,24 +1,34 @@
 .quora {
   width: "100%";
-  min-width: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
 .quora__contents {
   display: flex;
   justify-content: center;
-  padding: 50px 0;
-  background-color: rgba(0, 0, 0, 0.05);
-  min-width: fit-content;
-  width: 100%;
+  margin-top: 20px;
+  padding: 40px 0;
 }
 
-.quora__content {
-  display: flex;
-  flex-direction: row;
-  padding: 0px 10px;
-  width: 100%;
-  max-width: 1200px;
+.cSide{
+  flex-direction: column;
+  margin-left: 90px;
+
 }
+.cFeed{
+display: flex;
+margin-left: 80px;
+padding: 15px;
+width: 70%;
+
+}
+.cWidget{
+margin-right: 60px;
+width: 20%;
+margin-top: 13px;
+}
+
 
 .react-responsive-modal-modal {
   width: 90vw;
