@@ -11,7 +11,11 @@
   justify-content: center;
   padding: 3px;
 }
-
+.hot{
+  color: gray;
+  text-decoration: none;
+  font-size: 32px;
+}
 .qHeader-content {
   display: flex;
   align-items: center;

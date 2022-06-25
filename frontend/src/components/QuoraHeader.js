@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
+import WhatshotOutlinedIcon from '@material-ui/icons/WhatshotOutlined';
+import {Link} from "react-router-dom";
 import {
   AssignmentTurnedInOutlined,
   // Close,
@@ -21,7 +23,7 @@ import { logout, selectUser } from "../feature/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CheckIcon from '@material-ui/icons/Check';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import Alert from '@material-ui/lab/Alert';
+
 import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,9 +59,6 @@ function QuoraHeader() {
         .then((res) => {
           //console.log(res.data);
           alert(res.data.message);
-        // <Alert icon={<CheckCircleOutline fontSize="inherit" />} severity="success">
-        //   {res.data.message}
-        // </Alert>
           window.location.href = "/";
         })
         .catch((e) => {
@@ -94,11 +93,19 @@ function QuoraHeader() {
         </div>
         <div className="qHeader__icons">
           <div className="qHeader__icon">
+           <Link className="hot" to="/">
             <HomeIcon />
+           </Link> 
           </div>
           <div className="qHeader__icon">
             <FeaturedPlayListOutlinedIcon />
           </div>
+          <div className="qHeader__icon">
+          <Link className="hot" to="/trending">
+          <WhatshotOutlinedIcon/>
+          </Link>
+          </div>
+         
           <div className="qHeader__icon">
             <AssignmentTurnedInOutlined />
           </div>
