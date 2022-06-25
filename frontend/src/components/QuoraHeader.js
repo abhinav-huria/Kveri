@@ -97,28 +97,18 @@ function QuoraHeader() {
             <HomeIcon />
            </Link> 
           </div>
-          <div className="qHeader__icon">
-            <FeaturedPlayListOutlinedIcon />
-          </div>
+         
           <div className="qHeader__icon">
           <Link className="hot" to="/trending">
           <WhatshotOutlinedIcon/>
           </Link>
           </div>
          
-          <div className="qHeader__icon">
-            <AssignmentTurnedInOutlined />
-          </div>
-          <div className="qHeader__icon">
-            <PeopleAltOutlined />
-          </div>
-          <div className="qHeader__icon">
-            <NotificationsOutlined />
-          </div>
+         
         </div>
         <div className="qHeader__input">
           <Search />
-          <input type="text" placeholder="Search questions" />
+          <input type="text" placeholder="Search coming soon" disabled />
         </div>
         <div className="qHeader__Rem">
           <span>

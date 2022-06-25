@@ -84,10 +84,7 @@ function SidebarOptions() {
         />
         <p>Education</p>
       </div>
-      <div className="sidebarOption">
-        <Add />
-        <p className="text">Discover Spaces</p>
-      </div>
+     
     </div>
   );
 }
