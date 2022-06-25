@@ -12,8 +12,8 @@ const router = require("./routes");
 db.connect();
 
 //middle ware
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //cors
 app.use((req, res, next) => {
@@ -29,13 +29,13 @@ app.use("/api", router);
 app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
 
-app.get("*", (req, res) => {
-  try {
-    res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
-  } catch (e) {
-    res.send("Oops! unexpected error");
-  }
-});
+// app.get("*", (req, res) => {
+//   try {
+//     res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
+//   } catch (e) {
+//     res.send("Oops! unexpected error");
+//   }
+// });
 
 app.use(cors());
 

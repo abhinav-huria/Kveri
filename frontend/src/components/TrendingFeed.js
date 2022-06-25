@@ -8,9 +8,9 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get("/api/questions")
+      .get("/api/questions/topAnswered")
       .then((res) => {
-        console.log(res.data.reverse());
+        console.log(res.data);
         setPosts(res.data);
       })
       .catch((e) => {
@@ -23,11 +23,6 @@ function Feed() {
       {posts.map((post, index) => (
         <Post key={index} post={post} />
       ))}
-      {/* <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post /> */}
     </div>
   );
 }

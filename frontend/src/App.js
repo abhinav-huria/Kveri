@@ -3,11 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import Login from "./components/auth/Login";
 import Quora from "./components/Quora";
+import Trending from "./components/Trending";
 import { login, selectUser } from "./feature/userSlice";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { makeStyles } from "@material-ui/core";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// const useStyles = makeStyles(() => ({
+//   App: {
+//     backgroundColor: "#FAF3E0",
+//   },
+// }));
 
 function App() {
+  // const classes=useStyles();
+
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -22,15 +32,17 @@ function App() {
             uid: authUser.uid,
           })
         );
-        console.log("AuthUser", authUser);
+        // console.log("AuthUser", authUser);
       }
     });
   }, [dispatch]);
   return (
-    <div className="App">
-      {/* <h1>This is for testing</h1> */}
-      {user ? <Quora /> : <Login />}
-    </div>
+    <BrowserRouter>
+    <Routes>
+     <Route path="/" element={user ? <Quora /> : <Login /> }></Route>
+     <Route path="/trending"  element={<Trending/>}></Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

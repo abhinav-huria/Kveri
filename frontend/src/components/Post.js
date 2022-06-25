@@ -69,9 +69,9 @@ function Post({ post }) {
       <div className="post__info">
         <Avatar src={post?.user?.photo} />
         <h4>{post?.user?.userName}</h4>
-
+        
         <small>
-          <LastSeen date={post?.createdAt} />
+          
         </small>
       </div>
       <div className="post__body">
@@ -132,11 +132,13 @@ function Post({ post }) {
           <ArrowUpwardOutlined />
           <ArrowDownwardOutlined />
         </div>
-        <RepeatOneOutlined />
-        <ChatBubbleOutlined />
+        
+        <ChatBubbleOutlined onClick={() => {
+              setIsModalOpen(true);
+              console.log(post?._id);
+            }}/>
         <div className="post__footerLeft">
-          <ShareOutlined />
-          <MoreHorizOutlined />
+          
         </div>
       </div>
       <p
