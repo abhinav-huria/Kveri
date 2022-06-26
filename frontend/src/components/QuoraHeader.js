@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import HomeIcon from "@material-ui/icons/Home";
-import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
+// import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
 import WhatshotOutlinedIcon from '@material-ui/icons/WhatshotOutlined';
 import {Link} from "react-router-dom";
 import {
-  AssignmentTurnedInOutlined,
+  // AssignmentTurnedInOutlined,
   // Close,
-  NotificationsOutlined,
+  // NotificationsOutlined,
   PeopleAltOutlined,
-  Search,
-  ExpandMore,
+  Search
 } from "@material-ui/icons";
 import CloseIcon from "@material-ui/icons/Close";
-import { Avatar, Button, Input, makeStyles } from "@material-ui/core";
+import { Avatar, Button, Input } from "@material-ui/core";
 import "./css/QuoraHeader.css";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -21,20 +20,20 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { logout, selectUser } from "../feature/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import CheckIcon from '@material-ui/icons/Check';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+// import CheckIcon from '@material-ui/icons/Check';
+// import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
+// import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     width: '100%',
+//     '& > * + *': {
+//       marginTop: theme.spacing(2),
+//     },
+//   },
+// }));
 function QuoraHeader() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputUrl, setInputUrl] = useState("");
   const [question, setQuestion] = useState("");
@@ -80,6 +79,17 @@ function QuoraHeader() {
         });
     }
   };
+
+	function isValidHttpUrl(string) {
+		let url;
+		try {
+			url = new URL(string);
+		} catch (_) {
+			return false;  
+		}
+		return url.protocol === "http:" || url.protocol === "https:";
+	}
+
   return (
     
     <div className="qHeader">
@@ -94,14 +104,14 @@ function QuoraHeader() {
         <div className="qHeader__icons">
           <div className="qHeader__icon">
            <Link className="hot" to="/">
-            <HomeIcon />
+            <HomeIcon fontSize="large" />
            </Link> 
           </div>
          
           <div className="qHeader__icon">
-          <Link className="hot" to="/trending">
-          <WhatshotOutlinedIcon/>
-          </Link>
+						<Link className="hot" to="/trending">
+							<WhatshotOutlinedIcon fontSize="large"/>
+						</Link>
           </div>
          
          
@@ -112,7 +122,7 @@ function QuoraHeader() {
         </div>
         <div className="qHeader__Rem">
           <span>
-            <Avatar src={user?.photo} />
+            <Avatar style={{"border": "1px solid gray"}} src={user?.photo} />
           </span>
           <Button onClick={handleLogout}>Log Out</Button>
           <Button onClick={() => setIsModalOpen(true)}>Add Question</Button>
@@ -137,9 +147,9 @@ function QuoraHeader() {
             <div className="modal__info">
               <Avatar src={user?.photo} className="avatar" />
               <div className="modal__scope">
-                <PeopleAltOutlined />
-                <p>Public</p>
-                <ExpandMore />
+                &ensp;
+								<PeopleAltOutlined />
+                <p>&nbsp;Public&ensp;</p>
               </div>
             </div>
             <div className="modal__Field">
@@ -160,14 +170,15 @@ function QuoraHeader() {
                   value={inputUrl}
                   onChange={(e) => setInputUrl(e.target.value)}
                   style={{
-                    margin: "5px 0",
-                    border: "1px solid lightgray",
-                    padding: "10px",
-                    outline: "2px solid #000",
+                    "margin": "5px 0",
+                    "border": "1px solid gray",
+                    "padding": "10px",
+										"borderRadius": "3px"
+                    // outline: "2px solid #000",
                   }}
-                  placeholder="Optional: inclue a link that gives context"
+                  placeholder="Link to image to give more context (optional)"
                 />
-                {inputUrl !== "" && (
+                {isValidHttpUrl(inputUrl) && (
                   <img
                     style={{
                       height: "40vh",

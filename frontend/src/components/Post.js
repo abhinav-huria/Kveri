@@ -27,6 +27,17 @@ function LastSeen({ date }) {
     </div>
   );
 }
+
+function isValidHttpUrl(string) {
+	let url;
+	try {
+		url = new URL(string);
+	} catch (_) {
+		return false;  
+	}
+	return url.protocol === "http:" || url.protocol === "https:";
+}
+
 function Post({ post }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -125,9 +136,9 @@ function Post({ post }) {
             </div>
           </Modal>
         </div>
-        {post.questionUrl !== "" && <img src={post.questionUrl} alt="url" />}
+        {isValidHttpUrl(post.questionUrl) && <img src={post.questionUrl} alt="url" />}
       </div>
-      <div className="post__footer">
+      {/* <div className="post__footer">
         <div className="post__footerAction">
           <ArrowUpwardOutlined />
           <ArrowDownwardOutlined />
@@ -140,7 +151,7 @@ function Post({ post }) {
         <div className="post__footerLeft">
           
         </div>
-      </div>
+      </div> */}
       <p
         style={{
           color: "rgba(0,0,0,0.5)",
@@ -168,7 +179,7 @@ function Post({ post }) {
                 flexDirection: "column",
                 width: "100%",
                 padding: "10px 5px",
-                borderTop: "1px solid lightgray",
+                borderBottom: "1px solid lightgray",
               }}
               className="post-answer-container"
             >
@@ -187,10 +198,11 @@ function Post({ post }) {
                 <div
                   style={{
                     margin: "0px 10px",
+										fontSize: "13px"
                   }}
                   className="post-info"
                 >
-                  <p>{_a?.user?.userName}</p>
+                  <p style={{"fontSize": "13px"}}>{_a?.user?.userName}</p>
                   <span>
                     <LastSeen date={_a?.createdAt} />
                   </span>
