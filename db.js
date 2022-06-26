@@ -7,7 +7,7 @@ const cluster = process.env.MONGO_CLUSTER
 const dbname = process.env.MONGO_DBNAME
 
 const url = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`
-console.log(url);
+
 module.exports.connect = () => {
   mongoose
     .connect(url, {

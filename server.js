@@ -29,6 +29,14 @@ app.use("/api", router);
 app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/frontend/build")));
 
+app.get("/", (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, "/frontend/build"));
+  } catch (e) {
+    res.send("Oops! unexpected error");
+  }
+});
+
 app.use(cors());
 
 //server listening
