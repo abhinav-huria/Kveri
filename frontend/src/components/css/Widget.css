@@ -16,8 +16,9 @@
 .widget__header > h5 {
   padding: 10px;
   color: rgb(80, 80, 80);
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 1.1px;
+	text-align: center;
 }
 
 .widget__contents {

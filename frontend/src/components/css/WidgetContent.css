@@ -6,27 +6,45 @@
 .widget__content {
   margin: 5px;
   display: flex;
+	align-items: center;
   padding: 5px;
   border-bottom: 1px solid lightgray;
 }
 
-.widget__content > img {
-  height: auto;
-	width: 60px;
+.widget__content > a {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+a > img {
+	max-height: 80px;
+	max-width: 90%;
 	border: 1px solid lightgray;
-  border-radius: 5px;
+	border-radius: 10px;
+	background-color: white;
 }
 
 .widget__contentTitle {
-  margin-left: 10px;
+	margin: auto;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.widget__contentTitle > a {
-  color: rgb(70, 68, 68);
-	text-decoration: none;
-	font-weight: 600;
+
+.widget__contentTitle > h2 {
+	margin: auto;
 }
 
 .widget__contentTitle > p {
   color: gray;
   font-size: small;
+	text-align: center;
 }
