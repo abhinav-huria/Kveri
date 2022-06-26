@@ -80,11 +80,22 @@ router.get("/topAnswered", async(req, res, next) => {
       .exec()
       .then((doc) => {
 				doc.sort(function(d1, d2) {
+					if(d1.allAnswers.length === d2.allAnswers.length) {
+						let date1 = new Date(d1.createdAt), date2 = new Date(d2.createdAt);
+						if(date1.getTime() > date2.getTime()) {
+							return -1;
+						} else if(date1.getTime() < date2.getTime()) {
+							return 1;
+						} else {
+							return 0;
+						}
+					}
 					return d2.allAnswers.length - d1.allAnswers.length;
 				})
         res.status(200).send(doc);
       })
       .catch((error) => {
+				console.log(error);
         res.status(500).send({
           status: false,
           message: "Unable to get the question details",
