@@ -1,12 +1,4 @@
 import { Avatar } from "@material-ui/core";
-import {
-  ArrowDownwardOutlined,
-  ArrowUpwardOutlined,
-  ChatBubbleOutlined,
-  MoreHorizOutlined,
-  RepeatOneOutlined,
-  ShareOutlined,
-} from "@material-ui/icons";
 import React, { useState } from "react";
 import "./css/Post.css";
 import { Modal } from "react-responsive-modal";
@@ -48,8 +40,6 @@ function Post({ post }) {
   const handleQuill = (value) => {
     setAnswer(value);
   };
-  // console.log(answer);
-
   const handleSubmit = async () => {
     if (post?._id && answer !== "") {
       const config = {
@@ -115,7 +105,7 @@ function Post({ post }) {
               <p>
                 asked by <span className="name">{post?.user?.userName}</span> on{" "}
                 <span className="name">
-                  {new Date(post?.createdAt).toLocaleString()}
+                  {/* {new Date(post?.createdAt).toLocaleString()} */}
                 </span>
               </p>
             </div>
@@ -138,20 +128,6 @@ function Post({ post }) {
         </div>
         {isValidHttpUrl(post.questionUrl) && <img src={post.questionUrl} alt="url" />}
       </div>
-      {/* <div className="post__footer">
-        <div className="post__footerAction">
-          <ArrowUpwardOutlined />
-          <ArrowDownwardOutlined />
-        </div>
-        
-        <ChatBubbleOutlined onClick={() => {
-              setIsModalOpen(true);
-              console.log(post?._id);
-            }}/>
-        <div className="post__footerLeft">
-          
-        </div>
-      </div> */}
       <p
         style={{
           color: "rgba(0,0,0,0.5)",
@@ -204,7 +180,7 @@ function Post({ post }) {
                 >
                   <p style={{"fontSize": "13px"}}>{_a?.user?.userName}</p>
                   <span>
-                    <LastSeen date={_a?.createdAt} />
+                    {/* <LastSeen date={_a?.createdAt} /> */}
                   </span>
                 </div>
               </div>
